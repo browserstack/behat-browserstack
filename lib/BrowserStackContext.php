@@ -12,10 +12,10 @@ class BrowserStackContext implements Behat\Behat\Context\Context
         self::$CONFIG = $parameters;
         
         self::$CONFIG['BROWSERSTACK_USERNAME'] = getenv('BROWSERSTACK_USERNAME');
-        if(!self::$CONFIG['BROWSERSTACK_USERNAME']) self::$CONFIG['BROWSERSTACK_USERNAME'] = $CONFIG['user'];
+        if(!self::$CONFIG['BROWSERSTACK_USERNAME']) self::$CONFIG['BROWSERSTACK_USERNAME'] = self::$CONFIG['user'];
 
         self::$CONFIG['BROWSERSTACK_ACCESS_KEY'] = getenv('BROWSERSTACK_ACCESS_KEY');
-        if(!self::$CONFIG['BROWSERSTACK_ACCESS_KEY']) self::$CONFIG['BROWSERSTACK_ACCESS_KEY'] = $CONFIG['key'];
+        if(!self::$CONFIG['BROWSERSTACK_ACCESS_KEY']) self::$CONFIG['BROWSERSTACK_ACCESS_KEY'] = self::$CONFIG['key'];
 
         if( !self::$driver ) {
             self::createDriver();
@@ -25,6 +25,7 @@ class BrowserStackContext implements Behat\Behat\Context\Context
     public static function createDriver()
     {
         $task_id = getenv('TASK_ID') ? getenv('TASK_ID') : 0;
+        echo "TASK ".$task_id."\n\n";
         $url = "https://".self::$CONFIG['BROWSERSTACK_USERNAME'].":".self::$CONFIG['BROWSERSTACK_ACCESS_KEY']."@".self::$CONFIG['server']."/wd/hub";
         $caps = self::$CONFIG['environments'][$task_id];
         

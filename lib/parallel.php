@@ -12,12 +12,12 @@ $CONFIG = Yaml::parse(file_get_contents($config_file))["default"]["suites"]["def
 $procs = array();
 
 foreach ($CONFIG['environments'] as $key => $value) {
-    if(preg_match('/win/i', PHP_OS)) {
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
       // Windows
       $cmd = "set TASK_ID=$key& \"./bin/behat\" --config=". getenv("CONFIG_FILE")." 2>&1\n";
     } else {
       // Linux or  Mac
-      $cmd = "TASK_ID=$key ./bin/behat --config=". getenv("CONFIG_FILE")." 2>&1\n";
+      $cmd = "export TASK_ID=$key && ./bin/behat --config=". getenv("CONFIG_FILE")." 2>&1\n";
     }
     print_r($cmd);
 
