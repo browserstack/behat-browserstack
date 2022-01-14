@@ -2,11 +2,6 @@
 
 require "vendor/autoload.php";
 
-use Behat\Behat\Context\BehatContext,
-  Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
-
 class FeatureContext extends BrowserStackContext {
   /** @Given /^I am on "([^"]*)"$/ */
   public function iAmOnSite($url) {
@@ -17,7 +12,7 @@ class FeatureContext extends BrowserStackContext {
   public function iSearchFor($searchText) {
     $element = self::$driver->findElement(WebDriverBy::name("q"));
     $element->sendKeys($searchText);
-    $element->submit();
+    $element->sendKeys(WebDriverKeys::ENTER);
     sleep(5);
   }
 
@@ -37,3 +32,6 @@ class FeatureContext extends BrowserStackContext {
     }
   }
 }
+
+
+  

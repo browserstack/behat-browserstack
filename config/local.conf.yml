@@ -1,20 +1,23 @@
-default:
-    paths:
-        features: '../features/local'
-        bootstrap:  '../features/bootstrap'
-    context:
-        parameters:
-            browserstack:
-                server: "hub-cloud.browserstack.com"
-                user: "BROWSERSTACK_USERNAME"
-                key: "BROWSERSTACK_ACCESS_KEY"
+default: 
+    autoload:
+        '': '%paths.base%/../features/bootstrap'
+    suites:
+        default:
+            paths: ['../features/local']
+            contexts:
+                - FeatureContext:
+                    parameters:
+                        server: "hub-cloud.browserstack.com"
+                        user: "BROWSERSTACK_USERNAME"
+                        key: "BROWSERSTACK_ACCESS_KEY"
 
-                capabilities:
-                    build: "behat-browserstack"
-                    name: "local_test"
-                    "browserstack.debug": true
-                    "browserstack.local": true
+                        capabilities:
+                            build: "behat-browserstack"
+                            name: "local_test"
+                            "browserstack.debug": true
+                            "browserstack.local": true
 
-                environments:
-                    -
-                        browser: "chrome"
+                        environments:
+                            -
+                                browser: "Chrome"
+                                os: "Windows"

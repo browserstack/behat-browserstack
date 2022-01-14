@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 
 $config_file = getenv('CONFIG_FILE');
 if(!$config_file) $config_file = 'config/single.conf.yml';
-$CONFIG = Yaml::parse(file_get_contents($config_file))["default"]["context"]["parameters"]["browserstack"];
+$CONFIG = Yaml::parse(file_get_contents($config_file))["default"]["suites"]["default"]["contexts"][0]["FeatureContext"]["parameters"];
 
 $procs = array();
 

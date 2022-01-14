@@ -1,25 +1,31 @@
-default:
-    paths:
-        features: '../features/single'
-        bootstrap:  '../features/bootstrap'
-    context:
-        parameters:
-            browserstack:
-                server: "hub-cloud.browserstack.com"
-                user: "BROWSERSTACK_USERNAME"
-                key: "BROWSERSTACK_ACCESS_KEY"
+default: 
+    autoload:
+        '': '%paths.base%/../features/bootstrap'
+    suites:
+        default:
+            paths: ['../features/single']
+            contexts:
+                - FeatureContext:
+                    parameters:
+                        server: "hub-cloud.browserstack.com"
+                        user: "BROWSERSTACK_USERNAME"
+                        key: "BROWSERSTACK_ACCESS_KEY"
 
-                capabilities:
-                    build: "behat-browserstack"
-                    name: "parallel_test"
-                    "browserstack.debug": true
+                        capabilities:
+                            build: "behat-browserstack"
+                            name: "parallel_test"
+                            "browserstack.debug": true
 
-                environments:
-                    -
-                        browser: "chrome"
-                    -
-                        browser: "firefox"
-                    -
-                        browser: "safari"
-                    -
-                        browser: "internet explorer"
+                        environments:
+                            -
+                                browser: "Chrome"
+                                browser_version: "85"
+                            -
+                                browser: "Firefox"
+                                os: "Windows"
+                            -
+                                browser: "Safari"
+                                os: "OS X"
+                            -
+                                browser: "Internet explorer"
+                                os: "Windows"
