@@ -32,6 +32,3 @@ class FeatureContext extends BrowserStackContext {
     }
   }
 }
-
-
-  
