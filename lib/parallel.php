@@ -17,7 +17,7 @@ foreach ($CONFIG['environments'] as $key => $value) {
       $cmd = "set TASK_ID=$key& \"./bin/behat\" --config=". getenv("CONFIG_FILE")." 2>&1\n";
     } else {
       // Linux or  Mac
-      $cmd = "export TASK_ID=$key && ./bin/behat --config=". getenv("CONFIG_FILE")." 2>&1\n";
+      $cmd = "TASK_ID=$key ./bin/behat --config=". getenv("CONFIG_FILE")." 2>&1\n";
     }
     print_r($cmd);
 
