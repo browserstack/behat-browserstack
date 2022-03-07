@@ -19,7 +19,7 @@ default:
                         environments:
                             -
                                 browser: "Chrome"
-                                browser_version: "85"
+                                browser_version: "latest"
                             -
                                 browser: "Firefox"
                                 os: "Windows"
