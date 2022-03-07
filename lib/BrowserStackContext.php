@@ -6,7 +6,7 @@ class BrowserStackContext implements Behat\Behat\Context\Context
 {
     protected static $CONFIG;
     protected static $driver;
-    protected static $bs_local;
+    private static $bs_local;
 
     public function __construct($parameters){
         self::$CONFIG = $parameters;
@@ -25,7 +25,6 @@ class BrowserStackContext implements Behat\Behat\Context\Context
     public static function createDriver()
     {
         $task_id = getenv('TASK_ID') ? getenv('TASK_ID') : 0;
-        echo "TASK ".$task_id."\n\n";
         $url = "https://".self::$CONFIG['BROWSERSTACK_USERNAME'].":".self::$CONFIG['BROWSERSTACK_ACCESS_KEY']."@".self::$CONFIG['server']."/wd/hub";
         $caps = self::$CONFIG['environments'][$task_id];
         
