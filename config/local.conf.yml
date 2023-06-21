@@ -12,8 +12,8 @@ default:
                         key: "BROWSERSTACK_ACCESS_KEY"
 
                         capabilities:
-                            build: "behat-browserstack"
-                            name: "local_test"
+                            build: "browserstack build"
+                            name: "BStack local test"
                             "browserstack.debug": true
                             "browserstack.local": true
 

@@ -13,7 +13,7 @@ default:
 
                         capabilities:
                             build: "behat-browserstack"
-                            name: "parallel_test"
+                            name: "BStack parallel test"
                             "browserstack.debug": true
 
                         environments:

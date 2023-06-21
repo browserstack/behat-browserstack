@@ -13,7 +13,7 @@ default:
 
                         capabilities:
                             build: "behat-browserstack"
-                            name: "single_test"
+                            name: "BStack single test"
                             "browserstack.debug": true
 
                         environments:
