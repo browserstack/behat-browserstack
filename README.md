@@ -9,9 +9,8 @@
 * Update `*.conf.yml` files inside the `config/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
 ## Running your tests
-- To run a single test, run `composer single`
+- To run tests, run `composer parallel`
 - To run local tests, run `composer local`
-- To run parallel tests, run `composer parallel`
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 

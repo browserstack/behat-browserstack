@@ -15,6 +15,7 @@ default:
                             build: "behat-browserstack"
                             name: "BStack parallel test"
                             "browserstack.debug": true
+                            "browserstack.source": "behat:sample-master-v1.0"
 
                         environments:
                             -

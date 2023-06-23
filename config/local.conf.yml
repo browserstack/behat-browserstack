@@ -16,6 +16,7 @@ default:
                             name: "BStack local test"
                             "browserstack.debug": true
                             "browserstack.local": true
+                            "browserstack.source": "behat:sample-master-v1.0"
 
                         environments:
                             -
