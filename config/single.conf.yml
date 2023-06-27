@@ -12,7 +12,7 @@ default:
                         key: "BROWSERSTACK_ACCESS_KEY"
 
                         capabilities:
-                            build: "behat-browserstack"
+                            build: "browserstack build 1"
                             name: "BStack single test"
                             "browserstack.debug": true
                             "browserstack.source": "behat:sample-master-v1.0"
